@@ -1,5 +1,6 @@
-yin = input("Iveskite y reiksme viena po kitos per kableli: ").split(",")
 xin = input("Iveskite x reiksme viena po kitos per kableli: ").split(",")
+yin = input("Iveskite y reiksme viena po kitos per kableli: ").split(",")
+
 
 step = 1
 
@@ -27,5 +28,6 @@ def yprediction():
 
 yprediction() 
 
-# y = 1,5,9,15,20,24,31,37,42,45
+# test data
 # x = 0,1,2,3,4,5,6,7,8,9
+# y = 1,5,9,15,20,24,31,37,42,45
