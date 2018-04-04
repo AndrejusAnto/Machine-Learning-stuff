@@ -5,8 +5,8 @@ step = 1
 
 def yprediction():
     byp = {}
-    for w in range(10):
-        for b in range(10):
+    for w in range(len(yin)):
+        for b in range(len(yin)):
             ypred= []
             for x in xin:
                 y = (w*step)*int(x) + int(b)
