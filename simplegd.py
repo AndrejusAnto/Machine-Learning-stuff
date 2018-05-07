@@ -1,33 +1,34 @@
-xin = input("Iveskite x reiksme viena po kitos per kableli: ").split(",")
-yin = input("Iveskite y reiksme viena po kitos per kableli: ").split(",")
+from random import randint
+# test data
+xt = [0,1,2,3,4,5,6,7,8,9]
+yt = [1,5,9,15,20,24,31,37,42,45]
 
+
+w = randint(1,3)
+b = randint(1,5)
+print ("w", w, "b", b)
 
 step = 1
 
-def yprediction():
+def yprediction(xin , yin):
     byp = {}
-    for w in range(len(yin)):
-        for b in range(len(yin)):
-            ypred= []
-            for x in xin:
-                y = (w*step)*int(x) + int(b)
-                ypred.append(y)
-            byp[(w,b)] = ypred
+    ypred= []
+    for x in xin:
+        y = (w*step) * x + b
+        ypred.append(y)
+    byp[(w,b)] = ypred
+    print(byp)
 
     msel = {}    
     for k, v in byp.items():
         loss = [] 
-        for lis, yr in zip(v, yin):
+        for lis, yr in zip(yin, v):
             los = (int(lis)-int(yr))**2
             loss.append(los)
             mse = sum(loss)/(len(loss))
         msel[k] = mse
-    
-    minv1 = min(msel, key=msel.get)        
-    print("formulė y = {}x + {}, MSE {}".format(minv1[0], minv1[1], msel[minv1]))
+    print(msel)
+    # minv1 = min(msel, key=msel.get)        
+    # print("formulė y = {}x + {}, MSE {}".format(minv1[0], minv1[1], msel[minv1]))
 
-yprediction() 
-
-# test data
-# x = 0,1,2,3,4,5,6,7,8,9
-# y = 1,5,9,15,20,24,31,37,42,45
+yprediction(xt, yt)
